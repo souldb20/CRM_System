@@ -6,6 +6,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+
 class CustomerDelete extends React.Component {
 
     constructor(props) {
@@ -24,7 +25,7 @@ class CustomerDelete extends React.Component {
     handleClose = () => {
         this.setState({
             open: false
-        })    
+        });
     }
 
     deleteCustomer(id) {
@@ -40,7 +41,7 @@ class CustomerDelete extends React.Component {
             <div>
             <Button variant="contained" color="secondary" onClick={this.handleClickOpen}>삭제</Button>
             <Dialog open={this.state.open} onClose={this.handleClose}>
-                <DialogTitle>
+                <DialogTitle onClose={this.handleClose}>
                     삭제 경고
                 </DialogTitle>
                 <DialogContent>
@@ -50,7 +51,7 @@ class CustomerDelete extends React.Component {
                 </DialogContent>
                 <DialogActions>
                     <Button variant="contained" color="primary" onClick={(e) => {this.deleteCustomer(this.props.id)}}>삭제</Button>
-                    <Button variant="outlined" color="primary" onClick={(e) => {this.deleteCustomer(this.handleClose)}}>닫기</Button>
+                    <Button variant="outlined" color="primary" onClick={this.handleClose}>닫기</Button>
                 </DialogActions>
             </Dialog>
             </div>
